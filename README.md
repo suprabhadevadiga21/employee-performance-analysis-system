@@ -40,7 +40,7 @@ A weighted performance score is calculated and used to classify employees into p
 
 ## Project Structure
 
-
+```
 ├── app.py
 ├── model.py
 ├── database/
@@ -51,7 +51,7 @@ A weighted performance score is calculated and used to classify employees into p
 ├── model.pkl
 ├── requirements.txt
 └── README.md
-
+```
 
 ## Installation
 
