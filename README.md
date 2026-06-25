@@ -87,6 +87,43 @@ python app.py
 * Enhanced security features
 * Advanced ML model comparison and tuning
 
+## Future Enhancements
+
+* REST API integration
+* Real-time analytics dashboards
+* Mobile application support
+* Enhanced security features
+* Advanced ML model comparison and tuning
+
+## 📸 Screenshots
+
+### 🏠 Home Page
+![Home Page](docs/screenshots/home-page.png)
+
+### 🔐 Login Page
+![Login Page](docs/screenshots/login-page.png)
+
+### 👥 Employee Dashboard
+![Employee Dashboard](docs/screenshots/employee-dashboard.png)
+
+### 📂 CSV Upload
+![CSV Upload](docs/screenshots/csv-upload.png)
+
+### 🧑‍💼 HR Dashboard
+![HR Dashboard](docs/screenshots/hr-dashboard.png)
+
+### 📊 Employee List
+![Employee List](docs/screenshots/employee-list.png)
+
+### 🔔 Notifications Page
+![Notifications](docs/screenshots/notifications-page.png)
+
+### 🤖 Prediction Page
+![Prediction Page](docs/screenshots/prediction-page.png)
+
+### 💼 HR Decisions Page
+![HR Decisions](docs/screenshots/hr-decisions.png)
+
 ## Academic Project
 
 This project was developed as part of the **Bachelor of Computer Applications (BCA)** curriculum and demonstrates the integration of machine learning with web application development for human resource analytics.
