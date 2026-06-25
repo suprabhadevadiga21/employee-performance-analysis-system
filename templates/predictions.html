@@ -1,0 +1,94 @@
+{% extends "hr_base.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for("static", filename="css/predictions.css") }}">
+
+<!-- ================= TITLE ================= -->
+<h2 class="page-title">🤖 ML Predictions</h2>
+
+<!-- ================= INPUT SECTION ================= -->
+<div class="card">
+
+    <label>Select Employee Performance:</label>
+
+    <select id="performanceSelect">
+        {% for p in performance %}
+        <option value="{{ p.performance_id }}">
+            {{ p.employee_code }} | {{ p.month }} |
+            Tasks: {{ p.tasks_completed }} |
+            Quality: {{ p.quality_score }} |
+            Attendance: {{ p.attendance_rate }}
+        </option>
+        {% endfor %}
+    </select>
+
+    <button class="btn btn-primary" onclick="runPrediction()">
+        ⚡ Run Prediction
+    </button>
+
+</div>
+
+<!-- ================= TABLE ================= -->
+<div class="card">
+
+    {% if predictions|length == 0 %}
+
+        <div class="empty">
+            🚫 No predictions yet. Select performance and run ML prediction.
+        </div>
+
+    {% else %}
+
+    <table>
+
+        <tr>
+            <th>Sl No</th>
+            <th>Employee</th>
+            <th>Month</th>
+            <th>Score</th>
+            <th>Level</th>
+            <th>Model</th>
+            <th>Date</th>
+            <th>Action</th>
+        </tr>
+
+        {% for pr in predictions %}
+        <tr>
+
+            <!-- UI SERIAL NUMBER -->
+            <td>{{ loop.index }}</td>
+
+            <td>{{ pr.employee_code }}</td>
+            <td>{{ pr.month }}</td>
+            <td>{{ pr.predicted_score }}</td>
+
+            <td>
+                <span class="badge {{ pr.performance_level }}">
+                    {{ pr.performance_level }}
+                </span>
+            </td>
+
+            <td>{{ pr.model_used }}</td>
+            <td>{{ pr.prediction_date }}</td>
+
+            <!-- DELETE (USES REAL ID INTERNALLY) -->
+            <td>
+                <a href="/delete-prediction/{{ pr.prediction_id }}"
+                   onclick="return confirm('Are you sure you want to delete this prediction?')"
+                   class="delete-btn">
+                   🗑 Delete
+                </a>
+            </td>
+
+        </tr>
+        {% endfor %}
+
+    </table>
+
+    {% endif %}
+
+</div>
+
+<script src="{{ url_for("static", filename="js/predictions.js") }}"></script>
+
+{% endblock %}

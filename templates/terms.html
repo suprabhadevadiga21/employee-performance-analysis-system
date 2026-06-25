@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>HR Terms & Conditions</title>
+
+<link rel="stylesheet" href="{{ url_for("static", filename="css/terms.css") }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Terms & Conditions for HR Access</h1>
+
+<ol>
+<li><strong>Authorized Access Only:</strong> HR users only.</li>
+<li><strong>Confidentiality:</strong> Employee data must remain private.</li>
+<li><strong>Account Responsibility:</strong> You are responsible for login activity.</li>
+<li><strong>Data Integrity:</strong> No falsification allowed.</li>
+<li><strong>System Usage:</strong> Only HR operations allowed.</li>
+<li><strong>Monitoring:</strong> System activity is logged.</li>
+<li><strong>Security:</strong> Follow password rules strictly.</li>
+<li><strong>Termination:</strong> Access can be revoked anytime.</li>
+<li><strong>Liability:</strong> Misuse is your responsibility.</li>
+<li><strong>Acceptance:</strong> You agree by continuing.</li>
+</ol>
+
+<div class="agree">
+<input type="checkbox" id="agreeCheck">
+<label for="agreeCheck">I agree to the Terms & Conditions</label>
+</div>
+
+<button class="btn" id="continueBtn" disabled onclick="goLogin()">
+Continue to Login →
+</button>
+
+</div>
+
+<script src="{{ url_for("static", filename="js/terms.js") }}"></script>
+
+</body>
+</html>

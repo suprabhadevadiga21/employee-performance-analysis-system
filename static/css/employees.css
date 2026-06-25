@@ -1,0 +1,134 @@
+
+
+/* ================= PAGE TITLE ================= */
+h2{
+    margin-bottom:15px;
+    color:#38bdf8;
+}
+
+/* ================= CARD ================= */
+.card{
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.06);
+    padding:18px;
+    border-radius:12px;
+    margin-bottom:20px;
+}
+
+/* ================= FORM (ONE ROW) ================= */
+.card form{
+    display:grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap:12px;
+    align-items:end;
+}
+
+.form-group{
+    margin-bottom:0;
+}
+
+/* LABEL */
+label{
+    font-size:12px;
+    color:#cbd5e1;
+}
+
+/* INPUT */
+input, select{
+    width:100%;
+    padding:6px;
+    margin-top:5px;
+    border-radius:6px;
+    border:1px solid rgba(255,255,255,0.1);
+    background:#0b1220;
+    color:white;
+    font-size:12px;
+}
+
+/* BUTTON (GREEN) */
+button{
+    padding:6px 12px;
+    border:none;
+    border-radius:6px;
+    background:#22c55e;
+    color:white;
+    cursor:pointer;
+    height:32px;
+}
+
+button:hover{
+    background:#16a34a;
+}
+
+/* ================= TABLE ================= */
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:10px;
+}
+
+th{
+    background:#0b1220;
+    color:#38bdf8;
+    text-align:left;
+    padding:12px;
+    font-size:14px;
+}
+
+td{
+    padding:12px;
+    border-bottom:1px solid rgba(255,255,255,0.05);
+    font-size:13px;
+}
+
+tr:hover{
+    background:rgba(56,189,248,0.06);
+}
+
+/* ================= STATUS ================= */
+.status{
+    padding:5px 10px;
+    border-radius:8px;
+    font-size:12px;
+    color:white;
+}
+
+.status.active{
+    background:#22c55e;
+}
+
+.status.inactive{
+    background:#ef4444;
+}
+
+/* ================= ACTIONS ================= */
+.actions{
+    display:flex;
+    gap:12px;
+}
+
+.actions a{
+    font-size:18px;
+    text-decoration:none;
+}
+
+.edit{ color:#38bdf8; }
+.delete{ color:#ef4444; }
+
+.edit:hover{ color:#0ea5e9; }
+.delete:hover{ color:#dc2626; }
+
+/* ================= EMPTY ================= */
+.empty{
+    text-align:center;
+    padding:20px;
+    color:#94a3b8;
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:900px){
+    .card form{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+

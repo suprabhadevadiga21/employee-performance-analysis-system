@@ -1,0 +1,113 @@
+
+
+/* ================= TITLE ================= */
+.page-title{
+    font-size:26px;
+    margin-bottom:15px;
+    color:#38bdf8; /* BLUE */
+    font-weight:700;
+}
+
+/* ================= CARD ================= */
+.card{
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.06);
+    padding:18px;
+    border-radius:12px;
+    margin-bottom:20px;
+}
+
+/* ================= SUB HEADINGS ================= */
+.card h3{
+    color:#e2e8f0; /* light text */
+    margin-bottom:10px;
+}
+
+/* ================= FORM ================= */
+.form-group{
+    margin-bottom:12px;
+}
+
+label{
+    font-size:13px;
+    color:#cbd5e1;
+}
+
+input, textarea{
+    width:100%;
+    padding:8px;
+    margin-top:5px;
+    border-radius:6px;
+    border:1px solid rgba(255,255,255,0.1);
+    background:#0b1220;
+    color:white;
+    font-size:13px;
+}
+
+input::placeholder,
+textarea::placeholder{
+    color:#64748b;
+}
+
+textarea{
+    resize:none;
+}
+
+/* ================= BUTTON ================= */
+.btn{
+    margin-top:10px;
+    padding:8px 15px;
+    border:none;
+    border-radius:6px;
+    background:#22c55e; /* GREEN */
+    color:white;
+    cursor:pointer;
+}
+
+.btn:hover{
+    background:#16a34a;
+}
+
+/* ================= TABLE ================= */
+.table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:10px;
+}
+
+.table th{
+    background:#0b1220;
+    color:#38bdf8; /* BLUE HEADER */
+    text-align:left;
+    padding:12px;
+    font-size:14px;
+}
+
+.table td{
+    padding:12px;
+    border-bottom:1px solid rgba(255,255,255,0.05);
+    font-size:13px;
+    color:#e2e8f0;
+}
+
+.table tr:hover{
+    background:rgba(56,189,248,0.06);
+}
+
+/* ================= DELETE ================= */
+.delete-btn{
+    color:#ef4444;
+    text-decoration:none;
+}
+
+.delete-btn:hover{
+    color:#dc2626;
+}
+
+/* ================= EMPTY ================= */
+.empty{
+    text-align:center;
+    padding:20px;
+    color:#94a3b8;
+}
+

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HR Analytics System</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="{{ url_for("static", filename="css/home.css") }}">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <h1>HR Analytics</h1>
+
+  <ul>
+    <li onclick="scrollToSection('home')">Home</li>
+    <li onclick="scrollToSection('features')">Features</li>
+    <li onclick="scrollToSection('about')">About</li>
+  </ul>
+
+  <!-- ✅ ONLY LOGIN BUTTON (FIXED) -->
+  <div class="login-buttons">
+    <button class="login-btn" onclick="goLogin()">Login</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div>
+    <h2>Employee Performance Analytics</h2>
+    <p>HR System for Smart Decisions</p>
+    <button onclick="scrollToSection('features')">Explore</button>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features" id="features">
+  <h2 class="section-title hidden">Features</h2>
+
+  <div class="cards">
+    <div class="card hidden">
+      <h3>Performance Tracker</h3>
+      <p>Track employee productivity and performance.</p>
+    </div>
+
+    <div class="card hidden">
+      <h3>Bonus Prediction</h3>
+      <p>Smart bonus allocation system.</p>
+    </div>
+
+    <div class="card hidden">
+      <h3>Increment Analysis</h3>
+      <p>Smart salary increment suggestions.</p>
+    </div>
+
+    <div class="card hidden">
+      <h3>Promotion System</h3>
+      <p>Predict promotions and demotions.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <h2 class="hidden">About Project</h2>
+  <p class="hidden">
+    This system uses Machine Learning to analyze employee data and predict performance outcomes for better HR decisions.
+  </p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 HR Analytics System</p>
+</footer>
+
+<script src="{{ url_for("static", filename="js/home.js") }}"></script>
+
+</body>
+</html>

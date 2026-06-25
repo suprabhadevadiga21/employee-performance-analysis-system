@@ -1,0 +1,62 @@
+{% extends "hr_base.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for("static", filename="css/performance.css") }}">
+
+<h2>📊 Employee Performance</h2>
+
+<div class="card">
+
+<table>
+
+<thead>
+<tr>
+<th>Employee</th>
+<th>Month</th>
+<th>Year</th>
+<th>Tasks</th>
+<th>Attendance</th>
+<th>Quality</th>
+<th>Teamwork</th>
+<th>Status</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody>
+
+{% for p in data %}
+<tr>
+
+<td>{{ p.employee_code }}</td>
+<td>{{ p.month }}</td>
+<td>{{ p.year }}</td>
+
+<td class="score">{{ p.tasks_completed }}</td>
+<td>{{ p.attendance_rate }}%</td>
+<td>{{ p.quality_score }}</td>
+<td>{{ p.teamwork_score }}</td>
+
+<td>
+<span class="status pending">Recorded</span>
+</td>
+
+<!-- DELETE -->
+<td>
+<a href="/performance/delete/{{ p.performance_id }}"
+   onclick="return confirm('Delete this record?')"
+   class="delete">
+   <i class="fa fa-trash"></i>
+</a>
+</td>
+
+</tr>
+{% endfor %}
+
+</tbody>
+
+</table>
+
+</div>
+
+{% endblock %}

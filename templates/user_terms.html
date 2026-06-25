@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>User Terms & Conditions</title>
+
+<link rel="stylesheet" href="{{ url_for("static", filename="css/user_terms.css") }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>User Terms & Conditions</h1>
+
+<ol>
+<li><strong>Responsible Usage:</strong> Users must use the system only for official tasks.</li>
+<li><strong>Data Protection:</strong> Do not share or misuse any company data.</li>
+<li><strong>Account Security:</strong> Users are responsible for their login credentials.</li>
+<li><strong>Upload Policy:</strong> All uploads are monitored and must be valid.</li>
+<li><strong>System Integrity:</strong> Any misuse or tampering is strictly prohibited.</li>
+<li><strong>Activity Monitoring:</strong> All actions may be logged for security.</li>
+<li><strong>Compliance:</strong> Users must follow company policies strictly.</li>
+<li><strong>Termination:</strong> Access may be revoked for misuse.</li>
+<li><strong>Liability:</strong> System is not responsible for user misuse.</li>
+<li><strong>Acceptance:</strong> By continuing, you agree to all terms.</li>
+</ol>
+
+<div class="agree">
+<input type="checkbox" id="agreeCheck">
+<label for="agreeCheck">I Agree to the Terms & Conditions</label>
+</div>
+
+<button class="btn" id="continueBtn" disabled onclick="goLogin()">
+Continue to Login →
+</button>
+
+</div>
+
+<script src="{{ url_for("static", filename="js/user_terms.js") }}"></script>
+
+</body>
+</html>

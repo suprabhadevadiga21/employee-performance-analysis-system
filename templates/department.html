@@ -1,0 +1,85 @@
+{% extends "hr_base.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for("static", filename="css/department.css") }}">
+
+<div class="page-container">
+
+<div class="page-title">🏢 Department Management</div>
+
+<!-- FLASH -->
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+{% for category, message in messages %} <p style="color:#22c55e;">{{ message }}</p>
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+<!-- ADD FORM -->
+
+<div class="card">
+    <h3>Add Department</h3>
+
+
+<form method="POST">
+    <div class="form-group">
+        <label>Department Name</label>
+        <input type="text" id="dept_name" name="department_name" placeholder="Enter department name" required>
+    </div>
+
+    <div class="form-group">
+        <label>Description</label>
+        <textarea id="dept_desc" name="description" rows="3" placeholder="Auto-filled description..."></textarea>
+    </div>
+
+    <button type="submit" class="btn">Add Department</button>
+</form>
+
+
+</div>
+
+<!-- TABLE -->
+
+<div class="card">
+    <h3>All Departments</h3>
+
+
+{% if departments %}
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Action</th>
+    </tr>
+
+    {% for dept in departments %}
+    <tr>
+        <td>{{ dept.department_id }}</td>
+        <td>{{ dept.department_name }}</td>
+        <td>{{ dept.description }}</td>
+        <td>
+            <a href="{{ url_for('delete_department', dept_id=dept.department_id) }}"
+               class="delete-btn"
+               onclick="return confirm('Delete this department?')">
+               Delete
+            </a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+    <div class="empty">No departments found</div>
+{% endif %}
+
+
+</div>
+
+</div>
+
+<!-- AUTO-FILL SCRIPT -->
+
+<script src="{{ url_for("static", filename="js/department.js") }}"></script>
+
+{% endblock %}

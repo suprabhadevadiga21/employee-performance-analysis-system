@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for("static", filename="css/user_dashboard.css") }}">
+
+<h2>👤 User Dashboard</h2>
+
+<!-- FLASH -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+{% for category, message in messages %}
+<div class="flash {{ category }}">{{ message }}</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+<!-- ================= CARDS ================= -->
+<div class="cards">
+
+<div class="card">
+<h3>User</h3>
+<p>{{ session['user'] }}</p>
+</div>
+
+<div class="card">
+<h3>Role</h3>
+<p>{{ session['role'] }}</p>
+</div>
+
+<div class="card">
+<h3>Total Records</h3>
+<p>{{ data|length }}</p>
+</div>
+
+<div class="card">
+<h3>Status</h3>
+<p>Active</p>
+</div>
+
+</div>
+
+<!-- ================= UPLOAD ================= -->
+<div class="box">
+
+<h3>📤 Upload Performance CSV</h3>
+
+<form method="POST" action="/upload" enctype="multipart/form-data">
+<input type="file" name="file" required>
+<br><br>
+<button type="submit">Upload File</button>
+</form>
+
+</div>
+
+<!-- ================= TABLE ================= -->
+<div class="box">
+
+<h3>📊 Performance + ML + HR Status</h3>
+
+<table>
+
+<tr>
+<th>Month</th>
+<th>Year</th>
+<th>Tasks</th>
+<th>Attendance</th>
+<th>Quality</th>
+<th>Teamwork</th>
+
+<th>Score</th>
+<th>Level</th>
+
+<th>Bonus</th>
+<th>Increment</th>
+<th>Promotion</th>
+
+<th>HR Status</th>
+</tr>
+
+{% for row in data %}
+<tr>
+
+<td>{{ row.month }}</td>
+<td>{{ row.year }}</td>
+<td>{{ row.tasks_completed }}</td>
+<td>{{ row.attendance_rate }}%</td>
+<td>{{ row.quality_score }}</td>
+<td>{{ row.teamwork_score }}</td>
+
+<td>{{ row.predicted_score if row.predicted_score else '-' }}</td>
+<td class="{{ row.performance_level if row.performance_level else '' }}">
+    {{ row.performance_level if row.performance_level else '-' }}
+</td>
+
+<td>{{ row.bonus if row.bonus else '-' }}</td>
+<td>{{ row.increment_percentage if row.increment_percentage else '-' }}</td>
+
+<td>
+{% if row.promotion %}
+    ✅ Yes
+{% elif row.demotion %}
+    ❌ Yes
+{% else %}
+    -
+{% endif %}
+</td>
+
+<!-- STATUS FIX -->
+<td class="{% if row.status %}{{ row.status }}{% else %}null-status{% endif %}">
+    {{ row.status if row.status else 'pending' }}
+</td>
+
+</tr>
+{% endfor %}
+
+</table>
+
+</div>
+
+{% endblock %}

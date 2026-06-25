@@ -1,0 +1,76 @@
+
+
+/* ===== TITLE ===== */
+h2{
+font-size:22px;
+margin-bottom:15px;
+}
+
+/* ===== FLASH ===== */
+.flash {
+padding:10px;
+margin-bottom:15px;
+border-radius:8px;
+text-align:center;
+font-weight:bold;
+}
+.flash.success { background:#22c55e; }
+.flash.error { background:#ef4444; }
+
+/* ===== CARDS ===== */
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:12px;
+margin-bottom:20px;
+}
+
+.card{
+padding:15px;
+border-radius:12px;
+background:rgba(255,255,255,0.04);
+border:1px solid rgba(255,255,255,0.06);
+text-align:center;
+}
+
+/* ===== BOX ===== */
+.box{
+padding:20px;
+border-radius:12px;
+background:rgba(255,255,255,0.04);
+border:1px solid rgba(255,255,255,0.06);
+margin-bottom:20px;
+}
+
+/* ===== TABLE ===== */
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:10px;
+}
+
+th{
+background:#0b1220;
+color:#38bdf8;
+padding:10px;
+}
+
+td{
+padding:10px;
+border-bottom:1px solid rgba(255,255,255,0.05);
+}
+
+tr:hover{
+background:rgba(56,189,248,0.05);
+}
+
+/* ===== STATUS COLORS (FIXED) ===== */
+.pending{color:orange; font-weight:bold;}
+.reviewed{color:lightgreen; font-weight:bold;}
+.null-status{color:gray;}
+
+/* ===== LEVEL COLORS ===== */
+.high{color:#22c55e;}
+.medium{color:#f59e0b;}
+.low{color:#ef4444;}
+

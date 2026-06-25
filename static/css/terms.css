@@ -1,0 +1,75 @@
+
+body{
+    font-family:'Segoe UI',sans-serif;
+    background:linear-gradient(to right,#0f172a,#1e3a8a);
+    color:white;
+    padding:40px;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(15px);
+    padding:40px;
+    border-radius:15px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.3);
+}
+
+h1{
+    text-align:center;
+    color:#00c6ff;
+    margin-bottom:25px;
+}
+
+ol{
+    line-height:1.7;
+    padding-left:20px;
+}
+
+li{
+    margin-bottom:15px;
+}
+
+strong{
+    color:#38bdf8;
+}
+
+.agree{
+    margin-top:30px;
+    display:flex;
+    align-items:center;
+    gap:6px;
+    font-size:14px;
+}
+
+.agree input{
+    width:15px;
+    height:15px;
+    margin:0;
+    cursor:pointer;
+    accent-color:#00c6ff;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 20px;
+    background:#00c6ff;
+    color:black;
+    border-radius:10px;
+    font-weight:bold;
+    border:none;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#00aaff;
+}
+
+.btn:disabled{
+    background:gray;
+    cursor:not-allowed;
+    opacity:0.6;
+}

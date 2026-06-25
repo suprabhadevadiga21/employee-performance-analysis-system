@@ -1,0 +1,106 @@
+{% extends "hr_base.html" %}
+{% block content %}
+
+<h2>📊 HR Live Dashboard</h2>
+
+<!-- ================= CARDS (SMALL) ================= -->
+<div class="card-grid">
+
+<a href="/employees" class="mini-card">
+<h3>{{ total_employees }}</h3>
+<p>👨‍💼 Employees</p>
+</a>
+
+<a href="/performance" class="mini-card">
+<h3>{{ total_performance }}</h3>
+<p>📊 Performance</p>
+</a>
+
+<a href="/predictions" class="mini-card">
+<h3>{{ total_predictions }}</h3>
+<p>🧠 Predictions</p>
+</a>
+
+<a href="/notifications" class="mini-card">
+<h3>{{ total_notifications }}</h3>
+<p>🔔 Notifications</p>
+</a>
+
+</div>
+
+<!-- ================= TOP PERFORMER ================= -->
+<div class="card small-card">
+<h3>🏆 Top Performer</h3>
+<p id="topPerformer">Loading...</p>
+</div>
+
+<!-- ================= CHARTS ================= -->
+<div class="chart-grid">
+
+<div class="card chart-card">
+<h3>📊 Performance Distribution</h3>
+<canvas id="pieChart"></canvas>
+</div>
+
+<div class="card chart-card">
+<h3>💰 Salary Comparison</h3>
+<canvas id="barChart"></canvas>
+</div>
+
+</div>
+
+<!-- ================= EXTRA CHARTS ================= -->
+<div class="chart-grid">
+
+<div class="card chart-card">
+<h3>🏢 Department Distribution</h3>
+<canvas id="deptChart"></canvas>
+</div>
+
+<div class="card chart-card">
+<h3>📈 Monthly Trend</h3>
+<canvas id="lineChart"></canvas>
+</div>
+
+</div>
+
+<!-- ================= EMPLOYEE TABLE ================= -->
+<div class="card table-card">
+<h3>🔍 Employee Directory</h3>
+
+<input type="text" id="searchInput" placeholder="Search employee name..." class="search-box">
+
+<table id="empTable">
+<thead>
+<tr>
+<th>Name</th>
+<th>Email</th>
+<th>Department</th>
+</tr>
+</thead>
+
+<tbody>
+{% for e in employees %}
+<tr>
+<td>{{ e.name }}</td>
+<td>{{ e.email }}</td>
+<td>{{ e.department }}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+
+</div>
+
+<!-- ================= STYLE ================= -->
+<link rel="stylesheet" href="{{ url_for("static", filename="css/dashboard.css") }}">
+
+<!-- ================= SEARCH ================= -->
+<script src="{{ url_for("static", filename="js/dashboard.js") }}"></script>
+
+<!-- ================= CHARTS ================= -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+
+{% endblock %}

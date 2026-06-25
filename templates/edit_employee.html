@@ -1,0 +1,38 @@
+{% extends "hr_base.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for("static", filename="css/edit_employee.css") }}">
+
+<h2>✏️ Edit Employee</h2>
+
+<div class="form-card">
+
+<form method="POST">
+
+    <label>Name</label>
+    <input type="text" name="name" value="{{ employee.name }}" required>
+
+    <label>Department</label>
+    <input type="text" name="department" value="{{ employee.department }}" required>
+
+    <label>Position</label>
+    <input type="text" name="position" value="{{ employee.position }}" required>
+
+    <label>Salary</label>
+    <input type="number" name="salary" value="{{ employee.salary }}" required>
+
+    <label>Status</label>
+    <select name="status">
+        <option value="active" {% if employee.status=='active' %}selected{% endif %}>Active</option>
+        <option value="inactive" {% if employee.status=='inactive' %}selected{% endif %}>Inactive</option>
+    </select>
+
+    <button type="submit">Update Employee</button>
+
+</form>
+
+<a href="/employees" class="back">← Back to Employees</a>
+
+</div>
+
+{% endblock %}

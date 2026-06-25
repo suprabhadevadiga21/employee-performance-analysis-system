@@ -1,0 +1,138 @@
+{% extends "hr_base.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for("static", filename="css/decisions.css") }}">
+
+<!-- ================= PAGE TITLE ================= -->
+
+<h2 class="page-title">🧑‍💼 HR Decision</h2>
+
+<!-- ================= WORK SECTION ================= -->
+
+<div class="card">
+
+<div class="section-title">⚡ Make New Decision</div>
+
+<table>
+
+<tr>
+    <th>Employee</th>
+    <th>Score</th>
+    <th>Level</th>
+    <th>Decision</th>
+    <th>Remarks</th>
+    <th>Action</th>
+</tr>
+
+{% for d in data %}
+
+<tr>
+
+<form action="/save-decision" method="POST">
+
+
+<td>{{ d.employee_code }}</td>
+<td>{{ d.predicted_score }}</td>
+
+<td class="{{ d.performance_level }}">
+    {{ d.performance_level }}
+</td>
+
+<input type="hidden" name="prediction_id" value="{{ d.prediction_id }}">
+<input type="hidden" name="employee_code" value="{{ d.employee_code }}">
+
+<!-- DECISION DROPDOWN -->
+<td>
+    <select name="decision" required>
+        <option value="none">None</option>
+        <option value="promotion">Promotion</option>
+        <option value="demotion">Demotion</option>
+    </select>
+</td>
+
+<!-- REMARKS -->
+<td>
+    <select name="remarks" required>
+        <option value="Excellent performance - Promotion recommended">
+            Excellent performance - Promotion recommended
+        </option>
+        <option value="Good performance - Increment approved">
+            Good performance - Increment approved
+        </option>
+        <option value="Satisfactory performance - Maintain level">
+            Satisfactory performance - Maintain level
+        </option>
+        <option value="Below expectations - Improvement required">
+            Below expectations - Improvement required
+        </option>
+    </select>
+</td>
+
+<td>
+    <button class="btn">Save</button>
+</td>
+
+
+</form>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</div>
+
+<!-- ================= HISTORY SECTION ================= -->
+
+<div class="card">
+
+<div class="section-title">📋 Decision History</div>
+
+<table>
+
+<tr>
+    <th>Employee</th>
+    <th>Score</th>
+    <th>Bonus</th>
+    <th>Increment %</th>
+    <th>Decision</th>
+    <th>Remarks</th>
+    <th>Date</th>
+</tr>
+
+{% for h in history %}
+
+<tr>
+
+
+<td>{{ h.employee_code }}</td>
+<td>{{ h.predicted_score }}</td>
+
+<td>{{ h.bonus }}</td>
+<td>{{ h.increment_percentage }}</td>
+
+<!-- ✅ FIXED DECISION COLUMN -->
+<td>
+    {% if h.decision == 'promotion' %}
+        <span style="color:#22c55e;">⬆️ Promotion</span>
+    {% elif h.decision == 'demotion' %}
+        <span style="color:#ef4444;">⬇️ Demotion</span>
+    {% else %}
+        <span style="color:#94a3b8;">None</span>
+    {% endif %}
+</td>
+
+<td>{{ h.remarks }}</td>
+<td>{{ h.decision_date }}</td>
+
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</div>
+
+{% endblock %}
