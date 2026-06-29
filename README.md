@@ -21,11 +21,10 @@ Built with **Python, Flask, MySQL, and Scikit-learn**, the system analyzes emplo
 ## Tech Stack
 
 * **Backend:** Python, Flask
-* **Frontend:** HTML, CSS, JavaScript, Bootstrap
+* **Frontend:** HTML, CSS, JavaScript
 * **Database:** MySQL
 * **Machine Learning:** Scikit-learn (Random Forest Classifier)
 * **Data Processing:** Pandas, NumPy
-* **Visualization:** Chart.js
 
 ## Machine Learning Approach
 
